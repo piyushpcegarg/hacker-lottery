@@ -1,9 +1,16 @@
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Toolbar } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const MainNavbar = () => (
   <AppBar>
     <Toolbar>
-      <Typography variant={'h5'}>Hacker Lottery</Typography>
+      <Link to="/">
+        <img
+          alt="Logo"
+          src="/static/images/logo.png"
+          height="48"
+        />
+      </Link>
     </Toolbar>
   </AppBar>
 );

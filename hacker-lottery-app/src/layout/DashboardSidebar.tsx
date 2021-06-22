@@ -20,53 +20,49 @@ import {
   Gift as GiftIcon
 } from 'react-feather';
 import NavItem from './NavItem';
-
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Senior Developer',
-  name: 'Piyush Garg',
-};
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 const items = [
   {
     href: '/app/dashboard',
     icon: HomeIcon,
-    title: 'Dashboard',
+    title: 'dashboard',
   },
   {
     href: '/app/lobby',
     icon: GridIcon,
-    title: 'Lobby',
+    title: 'lobby',
   },
   {
-    href: '/app/lobby/add',
+    href: '/app/add',
     icon: PlusSquareIcon,
-    title: 'Add',
+    title: 'add',
   },
   {
     href: '/app/winner',
     icon: GiftIcon,
-    title: 'Winner',
+    title: 'winner',
   },
   {
     href: '/app/settings',
     icon: SettingsIcon,
-    title: 'Settings',
+    title: 'settings',
   },
   {
     href: '/signin',
     icon: LockIcon,
-    title: 'Login',
+    title: 'login',
   },
   {
     href: '/signup',
     icon: UserPlusIcon,
-    title: 'Register',
+    title: 'register',
   },
   {
     href: '/404',
     icon: AlertCircleIcon,
-    title: 'Error',
+    title: 'error',
   },
 ];
 
@@ -77,12 +73,11 @@ interface Props {
 
 const DashboardSidebar = ({ setMobileNavOpen, openMobile }: Props) => {
   const location = useLocation();
+  const user = firebase.auth().currentUser;
 
   useEffect(() => {
-    if (openMobile && setMobileNavOpen) {
-      setMobileNavOpen(false);
-    }
-  }, [location.pathname]);
+    setMobileNavOpen(false);
+  }, [location.pathname, setMobileNavOpen]);
 
   const content = (
     <Box
@@ -102,7 +97,7 @@ const DashboardSidebar = ({ setMobileNavOpen, openMobile }: Props) => {
       >
         <Avatar
           component={RouterLink}
-          src={user.avatar}
+          src={user?.photoURL || ''}
           sx={{
             cursor: 'pointer',
             width: 64,
@@ -113,12 +108,12 @@ const DashboardSidebar = ({ setMobileNavOpen, openMobile }: Props) => {
         <Typography
           color="textPrimary"
           variant="h5">
-          {user.name}
+          {user?.displayName}
         </Typography>
         <Typography
           color="textSecondary"
           variant="body2">
-          {user.jobTitle}
+          {user?.email}
         </Typography>
       </Box>
       <Divider />

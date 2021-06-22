@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import DashboardLayout from '../layout/DashboardLayout';
+import ProtectedLayout from '../layout/ProtectedLayout';
 import MainLayout from '../layout/MainLayout';
 import NotFound from '../pages/NotFound';
 import Dashboard from '../pages/Dashboard';
@@ -13,15 +13,15 @@ import Winner from '../pages/Winner';
 const routes = [
   {
     path: 'app',
-    element: <DashboardLayout />,
+    element: <ProtectedLayout />,
     children: [
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'lobby', element: <Lobby /> },
-      { path: 'lobby/add', element: <AddLobby /> },
+      { path: 'add', element: <AddLobby /> },
       { path: 'winner', element: <Winner /> },
       { path: 'settings', element: <Settings /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
+      { path: '*', element: <Navigate to="/404" /> },
+    ],
   },
   {
     path: '/',
@@ -31,9 +31,9 @@ const routes = [
       { path: 'signup', element: <SignUp /> },
       { path: '404', element: <NotFound /> },
       { path: '/', element: <Navigate to="app/dashboard" /> },
-      { path: '*', element: <Navigate to="/404" /> }
-    ]
-  }
+      { path: '*', element: <Navigate to="/404" /> },
+    ],
+  },
 ];
 
 export default routes;

@@ -1,0 +1,10 @@
+{
+  "dashboard": "Dashboard",
+  "lobby": "Lobby",
+  "add": "Add",
+  "winner": "Winner",
+  "settings": "Settings",
+  "login": "Login",
+  "register": "Register",
+  "error": "Error"
+}

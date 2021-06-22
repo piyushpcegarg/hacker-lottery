@@ -6,6 +6,7 @@ import {
 import PropTypes from 'prop-types';
 import { Button, ListItem } from '@material-ui/core';
 import { Icon } from 'react-feather';
+import { FormattedMessage } from 'react-intl';
 
 interface Props {
   href: string,
@@ -58,7 +59,7 @@ const NavItem = ({
           <Icon size="20" />
         )}
         <span>
-          {title}
+          <FormattedMessage id={title} />
         </span>
       </Button>
     </ListItem>
