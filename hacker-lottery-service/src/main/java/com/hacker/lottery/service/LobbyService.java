@@ -47,7 +47,7 @@ public class LobbyService {
     
     public Lobby createLobby(LobbyDTO lobbyDTO) {
         
-        Lobby lobby = new Lobby();
+        var lobby = new Lobby();
         BeanUtils.copyProperties(lobbyDTO, lobby);
 
         lobby.setPrizeMoney(lobbyDTO.getEntryFees() * lobbyDTO.getMaxMembers() * 95 / 100);
@@ -60,7 +60,7 @@ public class LobbyService {
     
     public void addMember(Integer lobbyId) {
 
-        Lobby lobby = lobbyRepository.findById(lobbyId).orElse(null);
+        var lobby = lobbyRepository.findById(lobbyId).orElse(null);
 
         if (lobby == null)
             throw new LobbyNotFoundException();
@@ -74,7 +74,7 @@ public class LobbyService {
         lobby.setActiveMembers(activeMembers + 1);
         lobbyRepository.save(lobby);
 
-        Member member = new Member();
+        var member = new Member();
         member.setLobby(lobby);
         member.setName(faker.name().firstName());
         memberRepository.save(member);
@@ -82,7 +82,7 @@ public class LobbyService {
     
     public void startLobby(Integer lobbyId) {
 
-        Lobby lobby = lobbyRepository.findById(lobbyId).orElse(null);
+        var lobby = lobbyRepository.findById(lobbyId).orElse(null);
 
         if (lobby == null)
             throw new LobbyNotFoundException();
