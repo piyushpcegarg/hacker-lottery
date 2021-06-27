@@ -71,7 +71,7 @@ const DashboardNavbar = ({ setMobileNavOpen }: Props) => {
           <img
             alt="Logo"
             src="/static/images/logo.png"
-            height="48" />
+            height="36" />
         </Link>
         <Box sx={{ flexGrow: 1 }} />
         {theme === 'light' ? (

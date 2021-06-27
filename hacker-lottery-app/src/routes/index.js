@@ -9,12 +9,14 @@ import Settings from '../pages/Settings';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Winner from '../pages/Winner';
+import Account from '../pages/Account';
 
 const routes = [
   {
     path: 'app',
     element: <ProtectedLayout />,
     children: [
+      { path: 'account', element: <Account /> },
       { path: 'dashboard', element: <Dashboard /> },
       { path: 'lobby', element: <Lobby /> },
       { path: 'add', element: <AddLobby /> },

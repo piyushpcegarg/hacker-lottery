@@ -9,14 +9,18 @@ import { IntlProvider } from 'react-intl';
 
 export type UserContext = {
   setLocale: Dispatch<SetStateAction<string>>;
-  theme: string,
+  theme: string;
   setTheme: Dispatch<SetStateAction<string>>;
 };
 
 export const UserPreferenceContext = React.createContext<UserContext>({
-  setLocale: (): void => {},
+  setLocale: (): void => {
+    console.log('Initial blank implementation');
+  },
   theme: 'light',
-  setTheme: (): void => {},
+  setTheme: (): void => {
+    console.log('Initial blank implementation');
+  },
 });
 
 const loadLocaleData = (locale: string) => {

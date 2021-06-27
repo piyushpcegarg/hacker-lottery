@@ -8,7 +8,7 @@ const MainNavbar = () => (
         <img
           alt="Logo"
           src="/static/images/logo.png"
-          height="48"
+          height="36"
         />
       </Link>
     </Toolbar>
