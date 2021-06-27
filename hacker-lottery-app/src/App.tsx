@@ -6,6 +6,7 @@ import LightTheme from './theme/LightTheme';
 import { useRoutes } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { IntlProvider } from 'react-intl';
+import config from './config';
 
 export type UserContext = {
   setLocale: Dispatch<SetStateAction<string>>;
@@ -17,7 +18,7 @@ export const UserPreferenceContext = React.createContext<UserContext>({
   setLocale: (): void => {
     console.log('Initial blank implementation');
   },
-  theme: 'light',
+  theme: config.defaultTheme,
   setTheme: (): void => {
     console.log('Initial blank implementation');
   },
@@ -37,8 +38,8 @@ const loadLocaleData = (locale: string) => {
 const App = () => {
   const routing = useRoutes(routes);
 
-  const [locale, setLocale] = useState<string>('en');
-  const [theme, setTheme] = useState<string>('light');
+  const [locale, setLocale] = useState<string>(config.defaultLocale);
+  const [theme, setTheme] = useState<string>(config.defaultTheme);
   const [messages, setMessages] = useState<{ [key: string]: any }>();
 
   useEffect(() => {
