@@ -50,8 +50,10 @@ public class LobbyService {
         var lobby = new Lobby();
         BeanUtils.copyProperties(lobbyDTO, lobby);
 
-        lobby.setPrizeMoney(lobbyDTO.getEntryFees() * lobbyDTO.getMaxMembers() * 95 / 100);
-        lobby.setLobbyCharges(lobbyDTO.getEntryFees() * lobbyDTO.getMaxMembers() * 5 / 100);
+        Long prizeMoney = Math.round(lobbyDTO.getEntryFees() * lobbyDTO.getMaxMembers() * 95.0 / 100);
+        lobby.setPrizeMoney(prizeMoney.intValue());
+        Long lobbyCharges = Math.round(lobbyDTO.getEntryFees() * lobbyDTO.getMaxMembers() * 5.0 / 100);
+        lobby.setLobbyCharges(lobbyCharges.intValue());
         lobby.setActiveMembers(0);
         lobby.setStatus(LobbyStatus.OPEN);
 
