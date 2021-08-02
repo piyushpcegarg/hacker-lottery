@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hacker-lottery
+spec:
+  selector:
+    matchLabels:
+      app: hacker-lottery
+  template:
+    metadata:
+      labels:
+        app: hacker-lottery
+    spec:
+      containers:
+      - name: hacker-lottery
+        image: asia.gcr.io/hacker-lottery-app/hacker-lottery-cloud-sql:1.0.0
+        resources:
+          limits:
+            memory: "1024Mi"
+        ports:
+        - containerPort: 8080

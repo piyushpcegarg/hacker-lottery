@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gcp:
+      sql:
+        instance-connection-name: hacker-lottery-app:asia-south1:hacker-lottery
+        database-name: lottery
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+     
