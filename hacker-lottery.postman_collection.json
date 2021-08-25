@@ -1,0 +1,152 @@
+{
+	"info": {
+		"_postman_id": "a7f52024-4dfd-4d85-83de-a7d8716b631a",
+		"name": "hacker-lottery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Lobby",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"piyush\",\n    \"entryFees\": 1000,\n    \"maxMembers\": 5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/lobby",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lobby"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Lobby",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{HOST}}/lobby",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lobby"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Lobby Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/lobby/1",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lobby",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Member",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/lobby/1/member",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lobby",
+						"1",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start Lobby",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/lobby/1/start",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"lobby",
+						"1",
+						"start"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "localhost:8080"
+		}
+	]
+}
