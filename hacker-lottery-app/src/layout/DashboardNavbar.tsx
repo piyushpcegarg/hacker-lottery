@@ -7,14 +7,13 @@ import {
   Menu,
   MenuItem,
   Toolbar,
-} from '@material-ui/core';
-import LightThemeIcon from '@material-ui/icons/BrightnessLow';
-import DarkThemeIcon from '@material-ui/icons/BrightnessHigh';
-import MenuIcon from '@material-ui/icons/Menu';
-import ExitToApp from '@material-ui/icons/ExitToApp';
-import TranslateIcon from '@material-ui/icons/Translate';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+} from '@mui/material';
+import LightThemeIcon from '@mui/icons-material/BrightnessLow';
+import DarkThemeIcon from '@mui/icons-material/BrightnessHigh';
+import MenuIcon from '@mui/icons-material/Menu';
+import ExitToApp from '@mui/icons-material/ExitToApp';
+import TranslateIcon from '@mui/icons-material/Translate';
+import { getAuth, signOut } from 'firebase/auth';
 import { UserContext, UserPreferenceContext } from '../App';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +29,12 @@ const localeOptions = [
 ];
 
 const logout = () => {
-  firebase.auth().signOut();
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    console.log('Sign-out successful.');
+  }).catch((error) => {
+    console.error(error);
+  });
 };
 
 interface Props {

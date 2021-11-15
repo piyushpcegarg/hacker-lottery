@@ -2,7 +2,7 @@ import {
   Box,
   Container,
   Typography
-} from '@material-ui/core';
+} from '@mui/material';
 
 const NotFound = () => (
   <Box

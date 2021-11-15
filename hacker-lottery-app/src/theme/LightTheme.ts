@@ -1,5 +1,5 @@
-import { createTheme } from '@material-ui/core/styles';
-import { deepPurple } from '@material-ui/core/colors';
+import { createTheme } from '@mui/material/styles';
+import { deepPurple } from '@mui/material/colors';
 
 const LightTheme = createTheme({
   palette: {

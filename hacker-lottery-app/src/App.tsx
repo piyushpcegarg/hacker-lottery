@@ -1,10 +1,10 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@mui/material/CssBaseline';
 import routes from './routes';
 import DarkTheme from './theme/DarkTheme';
 import LightTheme from './theme/LightTheme';
 import { useRoutes } from 'react-router-dom';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { IntlProvider } from 'react-intl';
 import config from './config';
 

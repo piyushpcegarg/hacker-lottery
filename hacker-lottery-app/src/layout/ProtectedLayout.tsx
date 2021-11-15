@@ -1,12 +1,11 @@
 import { Navigate } from 'react-router';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { LinearProgress } from '@mui/material';
 import DashboardLayout from './DashboardLayout';
 
 const ProtectedLayout = () => {
-  const [user, loading] = useAuthState(firebase.auth());
+  const [user, loading] = useAuthState(getAuth());
 
   if (loading) {
     return (

@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router-dom';
-import Box from '@material-ui/core/Box';
+import Box from '@mui/material/Box';
 import MainNavbar from './MainNavbar';
 
 const MainLayout = () => (

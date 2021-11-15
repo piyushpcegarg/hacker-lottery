@@ -8,7 +8,7 @@ import {
   Drawer,
   List,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import {
   AlertCircle as AlertCircleIcon,
   Grid as GridIcon,
@@ -20,8 +20,7 @@ import {
   Gift as GiftIcon
 } from 'react-feather';
 import NavItem from './NavItem';
-import firebase from 'firebase/app';
-import 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 const items = [
   {
@@ -73,7 +72,7 @@ interface Props {
 
 const DashboardSidebar = ({ setMobileNavOpen, openMobile }: Props) => {
   const location = useLocation();
-  const user = firebase.auth().currentUser;
+  const user = getAuth().currentUser;
 
   useEffect(() => {
     setMobileNavOpen(false);

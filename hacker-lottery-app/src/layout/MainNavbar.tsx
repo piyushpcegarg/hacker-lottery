@@ -1,4 +1,4 @@
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const MainNavbar = () => (
